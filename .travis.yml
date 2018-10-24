@@ -1,0 +1,27 @@
+language: csharp
+mono: none
+dotnet: 2.1
+solution: ZeosApp.sln
+
+before_install:
+- nvm install 8.12.0
+- curl -o- -L https://yarnpkg.com/install.sh | bash
+- export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+install:
+- dotnet restore
+
+script:
+- dotnet build
+- yarn --cwd ClientApp test
+- yarn --cwd ClientApp lint
+- yarn --cwd ClientApp e2e
+
+# TODO - Setup deployment on Heroku
+#deploy:
+#  provider: heroku
+#  api_key: $HEROKU_TOKEN
+#  app:
+#  on: master
+
+notifications:
+  email: false
