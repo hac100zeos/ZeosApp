@@ -1,0 +1,51 @@
+<div class="col-6">
+	<div class="card">
+		<div class="card-header">
+			Login
+		</div>
+		<form class="card-body" (submit)="register()" #form="ngForm">
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input
+					id="email"
+					name="email"
+					type="email"
+					class="form-control{{ !formEmail.pristine && !formEmail.valid ? ' is-invalid' : ''}}"
+					placeholder="mail@example.com"
+					required
+					[(ngModel)]="email"
+					#formEmail="ngModel"
+				/>
+			</div>
+			<div class="form-group">
+				<label for="email-confirm">Confirm Email</label>
+				<input
+					id="email-confirm"
+					name="email-confirm"
+					type="email"
+					class="form-control{{ !formEmailConfirm.pristine && !formEmailConfirm.valid ? ' is-invalid' : ''}}"
+					required
+					[(ngModel)]="emailConfirm"
+					#formEmailConfirm="ngModel"
+				/>
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input
+					id="password"
+					name="password"
+					type="password"
+					class="form-control{{ !formPassword.pristine && !formPassword.valid ? ' is-invalid' : ''}}"
+					placeholder="********"
+					required
+					[(ngModel)]="password"
+					#formPassword="ngModel"
+				/>
+			</div>
+			<div class="d-flex">
+				<button class="btn btn-secondary ml-auto" type="button" (click)="form.reset()">Clear</button>
+				<button class="btn btn-primary ml-2" [disabled]="!form.valid">Register</button>
+			</div>
+		</form>
+	</div>
+</div>

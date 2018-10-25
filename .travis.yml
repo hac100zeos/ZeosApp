@@ -13,8 +13,9 @@ install:
 script:
 - dotnet build
 - yarn --cwd ClientApp test
-- yarn --cwd ClientApp lint
 - yarn --cwd ClientApp e2e
+- yarn --cwd ClientApp lint
+- yarn --cwd ClientApp prettier:check
 
 # TODO - Setup deployment on Heroku
 #deploy:

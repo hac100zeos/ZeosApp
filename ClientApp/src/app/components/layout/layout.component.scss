@@ -1,0 +1,19 @@
+.loading {
+	z-index: 9999;
+	background-color: #0002;
+	cursor: wait;
+	i {
+		@keyframes loading-spinner {
+			from {
+				transform: rotate(0deg);
+			}
+			to {
+				transform: rotate(360deg);
+			}
+		}
+		animation: loading-spinner;
+		animation-duration: 1s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+}

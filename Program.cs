@@ -1,4 +1,4 @@
-// <copyright file="Program.cs" company="ZEOS">
+﻿// <copyright file="Program.cs" company="ZEOS">
 // Copyright (c) ZEOS. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
