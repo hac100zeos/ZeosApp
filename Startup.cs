@@ -3,13 +3,13 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 
-using AspNetCore.Identity.MongoDbCore.Models;
-
 namespace ZeosApp
 {
 	using System;
+	using System.Collections.Generic;
 	using System.IdentityModel.Tokens.Jwt;
 	using System.Text;
+	using AspNetCore.Identity.MongoDbCore.Models;
 	using Microsoft.AspNetCore.Authentication.JwtBearer;
 	using Microsoft.AspNetCore.Builder;
 	using Microsoft.AspNetCore.Hosting;
@@ -84,7 +84,23 @@ namespace ZeosApp
 		{
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-			services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" }); });
+			services.AddSwaggerGen(c =>
+			{
+				c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+				var security = new Dictionary<string, IEnumerable<string>>
+				{
+					{"Bearer", new string[] { }},
+				};
+
+				c.AddSecurityDefinition("Bearer", new ApiKeyScheme
+				{
+					Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+					Name = "Authorization",
+					In = "header",
+					Type = "apiKey"
+				});
+				c.AddSecurityRequirement(security);
+			});
 
 			// In production, the Angular files will be served from this directory
 			services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
