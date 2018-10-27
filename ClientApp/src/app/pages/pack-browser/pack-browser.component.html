@@ -1,3 +1,9 @@
-<p>
-  pack-browser works!
-</p>
+<div class="card mx-2" *ngFor="let pack of packs">
+	<img class="card-img-top" [src]="pack.ImageUrl">
+	<div class="card-body">
+		<h5 class="card-title">{{pack.Title}}</h5>
+		<p class="card-text">{{pack.Description}}</p>
+		<a href="#" class="btn btn-primary">open pack</a>
+	</div>
+</div>
+
