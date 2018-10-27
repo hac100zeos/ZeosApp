@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeosApp", "ZeosApp.csproj", "{780B9CE1-922B-4280-82D6-3A7CCD3B699D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{780B9CE1-922B-4280-82D6-3A7CCD3B699D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{780B9CE1-922B-4280-82D6-3A7CCD3B699D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{780B9CE1-922B-4280-82D6-3A7CCD3B699D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{780B9CE1-922B-4280-82D6-3A7CCD3B699D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

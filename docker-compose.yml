@@ -1,0 +1,30 @@
+version: "3"
+
+networks:
+  aspnetcore-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+    - mongodb
+    volumes:
+    - /app
+    ports:
+    - "5000:80"
+    networks:
+    - aspnetcore-network
+  mongodb:
+    image: mongo:latest
+    volumes:
+    - mongo-data:/data/db
+    ports:
+    - "27017:27017"
+    networks:
+    - aspnetcore-network
