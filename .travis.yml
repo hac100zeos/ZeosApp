@@ -2,6 +2,12 @@ language: csharp
 mono: none
 dotnet: 2.1
 solution: ZeosApp.sln
+addons:
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
 
 before_install:
 - nvm install 8.12.0
