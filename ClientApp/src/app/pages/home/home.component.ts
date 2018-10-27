@@ -1,14 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'zeos-home',
 	templateUrl: './home.component.html',
+	styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-	constructor(private http: HttpClient) {}
+	searchQuery = '';
+
+	constructor(private _http: HttpClient, private _router: Router) {}
 
 	testAuth() {
-		this.http.get('/api/Example/Index').subscribe(console.log, console.log);
+		this._http.get('/api/Example/Index').subscribe(console.log, console.log);
+	}
+
+	search() {
+		console.log(this.searchQuery);
+		this._router.navigate(['search', { q: this.searchQuery }]);
 	}
 }

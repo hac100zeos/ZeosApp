@@ -15,6 +15,7 @@ import { PackBrowserComponent } from './pages/pack-browser/pack-browser.componen
 import { ProductComponent } from './pages/product/product.component';
 import { AccountService } from './services/account.service';
 import { LoadingService } from './services/loading.service';
+import { SearchComponent } from './pages/search/search.component';
 
 @NgModule({
 	declarations: [
@@ -26,6 +27,7 @@ import { LoadingService } from './services/loading.service';
 		ProductComponent,
 		PackComponent,
 		PackBrowserComponent,
+		SearchComponent,
 	],
 	imports: [
 		BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -37,6 +39,7 @@ import { LoadingService } from './services/loading.service';
 			{ path: 'packs', component: PackBrowserComponent },
 			{ path: 'pack/:id', component: PackComponent },
 			{ path: 'product', component: ProductComponent },
+			{ path: 'search', component: SearchComponent },
 			{ path: '', component: HomeComponent, pathMatch: 'full' },
 		]),
 	],
