@@ -10,12 +10,23 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { PackComponent } from './pages/pack/pack.component';
+import { PackBrowserComponent } from './pages/pack-browser/pack-browser.component';
 import { ProductComponent } from './pages/product/product.component';
 import { AccountService } from './services/account.service';
 import { LoadingService } from './services/loading.service';
 
 @NgModule({
-	declarations: [AppComponent, HomeComponent, LayoutComponent, LoginComponent, RegisterComponent, ProductComponent],
+	declarations: [
+		AppComponent,
+		HomeComponent,
+		LayoutComponent,
+		LoginComponent,
+		RegisterComponent,
+		ProductComponent,
+		PackComponent,
+		PackBrowserComponent,
+	],
 	imports: [
 		BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
 		HttpClientModule,
@@ -23,6 +34,8 @@ import { LoadingService } from './services/loading.service';
 		RouterModule.forRoot([
 			{ path: 'login', component: LoginComponent },
 			{ path: 'register', component: RegisterComponent },
+			{ path: 'packs', component: PackBrowserComponent },
+			{ path: 'pack/:id', component: PackComponent },
 			{ path: 'product', component: ProductComponent },
 			{ path: '', component: HomeComponent, pathMatch: 'full' },
 		]),
