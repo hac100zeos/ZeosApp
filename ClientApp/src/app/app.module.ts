@@ -11,9 +11,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AccountService } from './services/account.service';
 import { LoadingService } from './services/loading.service';
+import { ProductComponent } from './pages/product/product.component';
 
 @NgModule({
-	declarations: [AppComponent, HomeComponent, LoginComponent, RegisterComponent, LayoutComponent],
+	declarations: [AppComponent, HomeComponent, LoginComponent, RegisterComponent, LayoutComponent, ProductComponent],
 	imports: [
 		BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
 		HttpClientModule,
@@ -21,6 +22,7 @@ import { LoadingService } from './services/loading.service';
 		RouterModule.forRoot([
 			{ path: 'login', component: LoginComponent },
 			{ path: 'register', component: RegisterComponent },
+			{ path: 'product', component: ProductComponent },
 			{ path: '', component: HomeComponent, pathMatch: 'full' },
 		]),
 	],
