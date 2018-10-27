@@ -9,8 +9,6 @@ export class HomeComponent {
 	constructor(private http: HttpClient) {}
 
 	testAuth() {
-		this.http
-			.get('/api/Example/Index')
-			.subscribe(console.log, console.log);
+		this.http.get('/api/Example/Index').subscribe(console.log, console.log);
 	}
 }
