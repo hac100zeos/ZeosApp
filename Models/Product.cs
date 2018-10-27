@@ -25,8 +25,5 @@ namespace ZeosApp.Models
 		
 		[BsonElement("ProductPicUrl")]
 		public string ImageUrl { get; set; }
-
-		[BsonElement("Price")]
-		public int Price { get; set; }
 	}
 }
