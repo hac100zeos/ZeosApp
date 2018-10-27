@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PackBrowserComponent } from './pack-browser.component';
@@ -9,6 +10,7 @@ describe('PackBrowserComponent', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [PackBrowserComponent],
+			imports: [HttpClientTestingModule],
 		}).compileComponents();
 	}));
 
