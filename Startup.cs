@@ -89,7 +89,7 @@ namespace ZeosApp
 				c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
 				var security = new Dictionary<string, IEnumerable<string>>
 				{
-					{"Bearer", new string[] { }},
+					{ "Bearer", Array.Empty<string>() },
 				};
 
 				c.AddSecurityDefinition("Bearer", new ApiKeyScheme
@@ -97,7 +97,7 @@ namespace ZeosApp
 					Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
 					Name = "Authorization",
 					In = "header",
-					Type = "apiKey"
+					Type = "apiKey",
 				});
 				c.AddSecurityRequirement(security);
 			});

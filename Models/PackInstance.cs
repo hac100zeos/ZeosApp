@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 namespace ZeosApp.Models
 {
+	using System.Collections.Generic;
+	using MongoDB.Bson.Serialization.Attributes;
+
 	public class PackInstance
 	{
 		[BsonIgnoreIfNull, BsonIgnore]

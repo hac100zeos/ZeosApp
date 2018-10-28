@@ -1,3 +1,7 @@
+// <copyright file="GeneralController.cs" company="ZEOS">
+// Copyright (c) ZEOS. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// </copyright>
 namespace ZeosApp.Controllers
 {
 	using System.Collections.Generic;
@@ -16,13 +20,12 @@ namespace ZeosApp.Controllers
 		{
 			client = access.InitializeClient();
 			database = client.GetDatabase("ZeosApp", null);
-			SeedDb();
 		}
 
 		[HttpGet("[action]")]
 		public void SeedDb()
 		{
-			List<Product> products = new List<Product>
+			var products = new List<Product>
 			{
 				new Product
 				{
@@ -31,7 +34,7 @@ namespace ZeosApp.Controllers
 					Description = "3,4 Ghz quad core, 16 GB DDR3 SDRAM, 4000 GB Hard Disc, Graphic Card: Hurricane GX, Windows 8",
 					Name = "Gaming Monster Pro",
 					Price = 1700,
-					ImageUrl = "test-resources/sap/ui/demokit/explored/img/HT-1603.jpg"
+					ImageUrl = "test-resources/sap/ui/demokit/explored/img/HT-1603.jpg",
 				},
 
 				new Product
@@ -41,7 +44,7 @@ namespace ZeosApp.Controllers
 					Description = "2,8 Ghz dual core, 4 GB DDR3 SDRAM, 1000 GB Hard Disc, Graphic Card: Gladiator MX, Windows 8",
 					Name = "Family PC Pro",
 					Price = 900,
-					ImageUrl = "test-resources/sap/ui/demokit/explored/img/HT-1601.jpg"
+					ImageUrl = "test-resources/sap/ui/demokit/explored/img/HT-1601.jpg",
 				},
 
 				new Product
@@ -51,10 +54,10 @@ namespace ZeosApp.Controllers
 					Name = "Flat Watch HD37",
 					ImageUrl = "test-resources/sap/ui/demokit/explored/img/HT-6131.jpg",
 					Price = 1199,
-					CategoryId = 2
-				}
+					CategoryId = 2,
+				},
 			};
-				var collection = database.GetCollection<BsonDocument>("Products");
+			var collection = database.GetCollection<BsonDocument>("Products");
 			foreach (Product item in products)
 				collection.InsertOne(item.ToBsonDocument());
 		}
