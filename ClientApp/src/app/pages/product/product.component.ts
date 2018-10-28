@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 
 import { Product } from '../../models/api/product';
 
@@ -8,6 +9,7 @@ import { Product } from '../../models/api/product';
 	styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
+	faMoneyBill = faMoneyBill;
 	product: Product;
 
 	constructor() {}

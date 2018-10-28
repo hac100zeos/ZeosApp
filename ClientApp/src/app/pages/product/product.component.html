@@ -1,17 +1,17 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-
 <div class="jumbotron">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
-				<img src="{{product.ImageUrl}}" />
+				<img [src]="product.ImageUrl" />
 			</div>
 			<div class="col-md-8">
-				<h1>{{product.Name}}</h1>
-				<p>{{product.Description}}</p>
-
-				<button type="button" class="btn btn-primary btn-lg mx-2" id="btn-pack">Browse Packs</button>
-				<button type="button" class="btn btn-secondary btn-lg mx-2">Buy with currency: &nbsp;{{product.Price}}<i class="fa ml-2">&#xf0d6;</i></button>
+				<h1>{{ product.Name }}</h1>
+				<p>{{ product.Description }}</p>
+				<a class="btn btn-primary btn-lg mx-2" [routerLink]="'/packs'">Browse Packs</a>
+				<button type="button" class="btn btn-secondary btn-lg mx-2">
+					Buy with currency: &nbsp;{{ product.Price }}
+					<fa-icon class="ml-2" [icon]="faMoneyBill"></fa-icon>
+				</button>
 			</div>
 		</div>
 	</div>

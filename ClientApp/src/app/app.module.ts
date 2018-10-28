@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -45,6 +46,7 @@ import { SearchResultsComponent } from './pages/search-results/search-results.co
 			{ path: 'search-results', component: SearchResultsComponent },
 			{ path: '', component: HomeComponent, pathMatch: 'full' },
 		]),
+		FontAwesomeModule,
 	],
 	providers: [AccountService, LoadingService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
 	bootstrap: [AppComponent],

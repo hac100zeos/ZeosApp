@@ -1,3 +1,9 @@
-<p>
-  pack works!
-</p>
+<div class="pack d-flex flex-column w-100 h-100 align-items-center justify-content-center" *ngIf="pack && !viewPack">
+	<div class="pyro w-100" *ngIf="animationIndex > 5">
+		<div class="before position-absolute rounded"></div>
+		<div class="after position-absolute rounded"></div>
+	</div>
+	<h1 class="text-light" *ngIf="animationIndex > 3">{{ pack.Products[0].Name }}</h1>
+	<img class="my-3" [src]="pack.Products[0]?.ImageUrl" alt="" *ngIf="animationIndex > 1">
+	<button class="btn btn-primary btn-lg my-3" *ngIf="animationIndex > 3" (click)="viewPack = true">View Pack</button>
+</div>
