@@ -12,7 +12,7 @@ import { JwtPayload } from '../models/jwt-payload';
 	providedIn: 'root',
 })
 export class AccountService {
-	user: BehaviorSubject<ApplicationUser>;
+	readonly user: BehaviorSubject<ApplicationUser>;
 
 	constructor(private _http: HttpClient) {
 		const token = localStorage.getItem('CURRENT_USER');
