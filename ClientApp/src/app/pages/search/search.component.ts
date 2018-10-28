@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { mergeMap } from 'rxjs/operators';
-import { of } from 'rxjs';
+
+import { Product } from '../../models/api/product';
+import { ProductService } from '../../services/product.service';
 
 @Component({
 	selector: 'zeos-search',
@@ -10,17 +12,18 @@ import { of } from 'rxjs';
 })
 export class SearchComponent implements OnInit {
 	searchQuery: string;
+	results: Product[] = [];
 
-	constructor(private _activatedRoute: ActivatedRoute) {}
+	constructor(private _activatedRoute: ActivatedRoute, private _product: ProductService) {}
 
 	ngOnInit() {
 		this._activatedRoute.queryParams
 			.pipe(
 				mergeMap((queryParams) => {
 					this.searchQuery = queryParams.query;
-					return of({});
+					return this._product.search(this.searchQuery);
 				}),
 			)
-			.subscribe(console.log);
+			.subscribe((results) => (this.results = results));
 	}
 }

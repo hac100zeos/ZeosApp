@@ -1,1 +1,2 @@
 <h2 *ngIf="searchQuery">Search results for query "{{ searchQuery }}"</h2>
+<a *ngFor="let result of results" [routerLink]="'/product/' + result.name">{{ result.name }}</a>

@@ -1,15 +1,8 @@
 namespace ZeosApp.Controllers
 {
-	using System;
-	using System.Collections.Generic;
-	using System.IO;
 	using Microsoft.AspNetCore.Authorization;
 	using Microsoft.AspNetCore.Mvc;
-	using MongoDB.Bson;
-	using MongoDB.Bson.Serialization;
 	using MongoDB.Driver;
-	using Newtonsoft.Json;
-	using Newtonsoft.Json.Bson;
 	using ZeosApp.Models;
 
 	[Authorize]
@@ -25,20 +18,20 @@ namespace ZeosApp.Controllers
 			database = client.GetDatabase("ZeosApp", null);
 		}
 
-
 		[HttpGet("[action]")]
-		public ActionResult<Product> GetProducts()
+		public ActionResult<Product> GetAll()
 		{
 			var products = database.GetCollection<Product>("Products");
-			if (products == null)
+			var result = products.Find(p => true).ToEnumerable();
+			if (result == null)
 			{
 				return NotFound();
 			}
-			return new ObjectResult(products);
+			return new ObjectResult(result);
 		}
 
 		[HttpGet("[action]")]
-		public ActionResult<Product> GetProduct(string name)
+		public ActionResult<Product> Get(string name)
 		{
 			var product = database.GetCollection<Product>("Products");
 			var result = product.Find(p => p.Name.Equals(name)).Single();
@@ -51,15 +44,14 @@ namespace ZeosApp.Controllers
 		}
 
 		[HttpGet("[action]")]
-		public ActionResult<Product> SearchProduct(string name)
+		public ActionResult<Product[]> Search(string query)
 		{
 			var products = database.GetCollection<Product>("Products");
-			var result = products.Find(p => p.Name.Equals(name)).ToList();
+			var result = products.Find(p => p.Name.Contains(query)).ToList();
 			if (result == null)
 			{
 				return NotFound();
 			}
-
 			return new ObjectResult(result);
 		}
 	}
