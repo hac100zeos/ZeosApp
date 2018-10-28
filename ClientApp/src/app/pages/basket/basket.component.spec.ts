@@ -11,7 +11,7 @@ describe('BasketComponent', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [BasketComponent],
-			imports: [RouterTestingModule, FontAwesomeModule]
+			imports: [RouterTestingModule, FontAwesomeModule],
 		}).compileComponents();
 	}));
 
