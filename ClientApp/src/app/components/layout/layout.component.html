@@ -15,6 +15,10 @@
 		<a class="nav-link" [routerLink]="'/register'" *ngIf="!user">Register</a>
 		<a class="nav-link" [routerLink]="'/login'" *ngIf="!user">Login</a>
 		<span class="navbar-text" *ngIf="user">Welcome {{ user.email }}</span>
+		<a class="btn btn-outline-secondary ml-2" [routerLink]="'/basket'">
+			Basket<span class="badge badge-danger ml-2" *ngIf="basketCount">{{ basketCount }}</span>
+		</a>
+		<a class="btn btn-outline-primary ml-2" [routerLink]="'/checkout'">Checkout</a>
 	</div>
 </nav>
 <div class="content w-100">

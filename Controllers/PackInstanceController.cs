@@ -1,11 +1,9 @@
 namespace ZeosApp.Controllers
 {
 	using System;
-	using System.Collections.Generic;
 	using System.Threading.Tasks;
 	using Microsoft.AspNetCore.Authorization;
 	using Microsoft.AspNetCore.Mvc;
-	using MongoDB.Bson;
 	using MongoDB.Driver;
 	using ZeosApp.Models;
 

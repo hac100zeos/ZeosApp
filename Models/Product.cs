@@ -6,7 +6,6 @@ namespace ZeosApp.Models
 	/// <summary>
 	/// Product model for mongo. Use this model when inserting a new product into the database.
 	/// </summary>
-
 	[BsonIgnoreExtraElements]
 	public class Product
 	{
@@ -21,7 +20,7 @@ namespace ZeosApp.Models
 
 		[BsonElement("Category")]
 		public string Category { get; set; }
-		
+
 		[BsonElement("ProductImageUrl")]
 		public string ImageUrl { get; set; }
 
