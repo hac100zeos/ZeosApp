@@ -1,15 +1,14 @@
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ZeosApp.Models;
-
+// <copyright file="PackController.cs" company="ZEOS">
+// Copyright (c) ZEOS. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// </copyright>
 
 namespace ZeosApp.Controllers
 {
+	using Microsoft.AspNetCore.Authorization;
+	using Microsoft.AspNetCore.Mvc;
+	using MongoDB.Driver;
+	using ZeosApp.Models;
 
 	[Authorize]
 	[Route("api/[controller]")]
@@ -25,15 +24,15 @@ namespace ZeosApp.Controllers
 		}
 
 		[HttpGet("[action]")]
-		public ActionResult<Pack> getPacks()
+		public ActionResult<Pack> GetAll()
 		{
 			var packs = database.GetCollection<Pack>("PackInstance");
 			if (packs == null)
 			{
 				return NotFound();
 			}
+
 			return new ObjectResult(packs);
 		}
-
 	}
 }

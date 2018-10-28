@@ -2,16 +2,18 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
-				<img [src]="product.ImageUrl"/>
+				<img [src]="product.imageUrl"/>
 			</div>
 			<div class="col-md-8">
-				<h1>{{ product.Name }}</h1>
-				<p>{{ product.Description }}</p>
-				<a class="btn btn-primary btn-lg mx-2" [routerLink]="'/packs'">Browse Packs</a>
-				<button type="button" class="btn btn-secondary btn-lg mx-2" (click)="addToBasket()">
-					Add to Basket: {{ product.Price }}
-					<fa-icon class="ml-2" [icon]="faMoneyBill"></fa-icon>
-				</button>
+				<h1>{{ product.name }}</h1>
+				<p>{{ product.description }}</p>
+				<div class="d-flex w-100">
+					<a class="btn btn-primary btn-lg mx-2 ml-auto" [routerLink]="'/packs'">Browse Packs</a>
+					<button type="button" class="btn btn-secondary btn-lg mx-2 mr-auto" (click)="addToBasket()">
+						Add to Basket: {{ product.price }}
+						<fa-icon class="ml-2" [icon]="faMoneyBill"></fa-icon>
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
