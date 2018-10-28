@@ -1,2 +1,15 @@
 <h2 *ngIf="searchQuery">Search results for query "{{ searchQuery }}"</h2>
-<a *ngFor="let result of results" [routerLink]="'/product/' + result.name">{{ result.name }}</a>
+
+<div class="container bootstrap snippet">
+	<div class="row" *ngFor="let result of results">
+		<div class="col-lg-12">
+			<div class="search-result">
+				<h3><a [routerLink]="'/product/' + result.name">{{ result.name }}</a></h3>
+				<p>{{result.description}}</p>
+			</div>
+			<div class="hr-line-dashed"></div>
+		</div>
+	</div>
+</div>
+
+
