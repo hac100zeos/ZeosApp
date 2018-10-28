@@ -23,10 +23,14 @@ namespace ZeosApp.Models
 		[BsonElement("Category")]
 		public string Category { get; set; }
 		
-		[BsonElement("ProductPicUrl")]
+		[BsonElement("ProductImageUrl")]
 		public string ImageUrl { get; set; }
 
 		[BsonElement("Price")]
 		public int Price { get; set; }
+
+		[BsonElement("CategoryId")]
+		public int CategoryId { get; set; }
+
 	}
 }
