@@ -25,37 +25,33 @@ namespace ZeosApp.Controllers
 		}
 
 		[HttpPost("[action]")]
-		public ActionResult<PackInstance> packInstanceID(string catID)
+		public async Task<int> OpenPack(int catID)
 		{
-			var packInstance = database.GetCollection<BsonDocument>("packInstance");
-			var products = database.GetCollection<Product>("product");
-			var result = products.Find(p => p.Category.Equals(catID)).Limit(3);
+			var packInstance = database.GetCollection<PackInstance>("PackInstance");
+			var product = database.GetCollection<Product>("Products");
+			var result = await product.Find(p => p.CategoryId == catID).ToListAsync();
 
-			Random r = new Random(553);
-			string packInstanceID = r.ToString();
+			Random random = new Random(553);
+			// Any random integer
+			int num = random.Next();
 
-			var document = new BsonDocument
+			var document = new PackInstance
 			{
-				{"PackInstanceID", new BsonString(packInstanceID)},
-				{"Price", new BsonString("100")},
-				{"Products", new BsonArray(result.ToString()) },
+				PackInstanceID = num.ToString(),
+				Price = 100,
+				Products = result,
 			};
 
-			packInstance.InsertOneAsync(document);
+			await packInstance.InsertOneAsync(document);
 
-			if (result == null)
-			{
-				return NotFound();
-			}
-
-			return new ObjectResult(result);
+			return num;
 		}
 
 		[HttpPost("[action]")]
 		public ActionResult<PackInstance> ProductPack(string packID)
 		{
-			var pack = database.GetCollection<Pack>("pack");
-			var result = pack.Find(p => p.PackID.Equals(packID));
+			var pack = database.GetCollection<PackInstance>("PackInstance");
+			var result = pack.Find(p => p.PackInstanceID.Equals(packID)).Single();
 
 			if (result == null)
 			{

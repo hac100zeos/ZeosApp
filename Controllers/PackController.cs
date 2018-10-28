@@ -1,27 +1,39 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using ZeosApp.Models;
+
+
 namespace ZeosApp.Controllers
 {
-	using Microsoft.AspNetCore.Authorization;
-	using Microsoft.AspNetCore.Mvc;
-	using MongoDB.Driver;
-	using ZeosApp.Models;
 
 	[Authorize]
 	[Route("api/[controller]")]
 	public class PackController : Controller
 	{
 		private readonly IMongoDatabase database = null;
+		private readonly MongoClient client = null;
 
 		public PackController(DataAccess access)
 		{
-			access.InitializeClient();
+			client = access.InitializeClient();
+			database = client.GetDatabase("ZeosApp", null);
 		}
 
 		[HttpGet("[action]")]
-		public ActionResult<Pack> Packs()
+		public ActionResult<Pack> getPacks()
 		{
-			var packs = database.GetCollection<Pack>("pack");
-
-			return packs == null ? (ActionResult<Pack>)NotFound() : (ActionResult<Pack>)new ObjectResult(packs);
+			var packs = database.GetCollection<Pack>("PackInstance");
+			if (packs == null)
+			{
+				return NotFound();
+			}
+			return new ObjectResult(packs);
 		}
+
 	}
 }

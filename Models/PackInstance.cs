@@ -15,9 +15,9 @@ namespace ZeosApp.Models
 		public string PackInstanceID { get; set; }
 
 		[BsonElement("Price")]
-		public string Price { get; set; }
+		public int Price { get; set; }
 
 		[BsonElement("Products")]
-		public string[] Products { get; set; }
+		public List<Product> Products { get; set; }
 	}
 }
