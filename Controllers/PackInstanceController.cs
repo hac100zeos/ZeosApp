@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace ZeosApp.Controllers
 {
+	using System;
+	using System.Collections.Generic;
+	using System.Threading.Tasks;
 	using Microsoft.AspNetCore.Authorization;
 	using Microsoft.AspNetCore.Mvc;
 	using MongoDB.Bson;
@@ -61,5 +59,40 @@ namespace ZeosApp.Controllers
 			return new ObjectResult(result);
 		}
 
+		[HttpPost("[action]")]
+		public ActionResult<PackInstance> Get()
+		{
+
+			var collection = database.GetCollection<BsonDocument>("PackInstance");
+
+			var result = Deserialize(collection);
+
+			if (result == null)
+			{
+				return NotFound();
+			}
+
+			return new ObjectResult(result);
+		}
+
+		private async Task<IEnumerable<BsonElement>> Deserialize(IMongoCollection<BsonDocument> collection)
+		{
+			IEnumerable<BsonElement> element = null;
+
+			using (IAsyncCursor<BsonDocument> cursor = await collection.FindAsync(new BsonDocument()))
+			{
+				while (await cursor.MoveNextAsync())
+				{
+					IEnumerable<BsonDocument> batch = cursor.Current;
+					foreach (BsonDocument document in batch)
+					{
+
+						element = document.Elements;
+						return element;
+					}
+				}
+			}
+			return element;
+		}
 	}
 }
