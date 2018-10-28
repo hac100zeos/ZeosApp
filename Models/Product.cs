@@ -1,9 +1,8 @@
-using System;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-
 namespace ZeosApp.Models
 {
+	using MongoDB.Bson;
+	using MongoDB.Bson.Serialization.Attributes;
+
 	/// <summary>
 	/// Product model for mongo. Use this model when inserting a new product into the database.
 	/// </summary>
@@ -31,6 +30,5 @@ namespace ZeosApp.Models
 
 		[BsonElement("CategoryId")]
 		public int CategoryId { get; set; }
-
 	}
 }
