@@ -1,8 +1,11 @@
-// <copyright file="GeneralController.cs" company="ZEOS">
-// Copyright (c) ZEOS. All rights reserved.
-// Licensed under the MIT license. See LICENSE file in the project root for full license information.
-// </copyright>
-
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
+using MongoDB.Driver;
+using ZeosApp.HelperFunctions;
+using ZeosApp.Models;
 
 namespace ZeosApp.Controllers
 {
@@ -63,5 +66,19 @@ namespace ZeosApp.Controllers
 			return new ObjectResult(result);
 		}
 
+		[HttpPost("[action]")]
+		public ActionResult<PackInstance> Get()
+		{
+			var collection = database.GetCollection<BsonDocument>("PackInstance");
+
+			var result = new DeserializeHelper().Deserialize(collection);
+
+			if (result == null)
+			{
+				return NotFound();
+			}
+
+			return new ObjectResult(result);
+		}
 	}
 }
