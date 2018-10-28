@@ -50,5 +50,20 @@ namespace ZeosApp.Controllers
 
 			return new ObjectResult(result);
 		}
+
+		[HttpPost("[action]")]
+		public ActionResult<PackInstance> ProductPack(string packID)
+		{
+			var pack = database.GetCollection<Pack>("pack");
+			var result = pack.Find(p => p.PackID.Equals(packID));
+
+			if (result == null)
+			{
+				return NotFound();
+			}
+
+			return new ObjectResult(result);
+		}
+
 	}
 }
