@@ -26,5 +26,8 @@ namespace ZeosApp.Models
 		[BsonElement("Image")]
 		public string Image { get; set; }
 
+		[BsonElement("Item_ID")]
+		public string ItemID { get; set; }
+
 	}
 }
