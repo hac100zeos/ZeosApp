@@ -8,8 +8,8 @@
 				<h1>{{ product.Name }}</h1>
 				<p>{{ product.Description }}</p>
 				<a class="btn btn-primary btn-lg mx-2" [routerLink]="'/packs'">Browse Packs</a>
-				<button type="button" class="btn btn-secondary btn-lg mx-2" (click)="addToBasket()">
-					Add to Basket: {{ product.Price }}
+				<button type="button" class="btn btn-secondary btn-lg mx-2">
+					Buy with currency: &nbsp;{{ product.Price }}
 					<fa-icon class="ml-2" [icon]="faMoneyBill"></fa-icon>
 				</button>
 			</div>

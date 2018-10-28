@@ -6,7 +6,6 @@ import { mergeMap } from 'rxjs/operators';
 import { Product } from '../../models/api/product';
 import { LoadingService } from '../../services/loading.service';
 import { ProductService } from '../../services/product.service';
-import { PurchaseService } from '../../services/purchase.service';
 
 @Component({
 	selector: 'zeos-product',
@@ -21,7 +20,6 @@ export class ProductComponent implements OnInit {
 		private _activatedRoute: ActivatedRoute,
 		private _loading: LoadingService,
 		private _product: ProductService,
-		private _purchase: PurchaseService,
 	) {}
 
 	ngOnInit() {
@@ -32,9 +30,5 @@ export class ProductComponent implements OnInit {
 				this.product = product;
 				this._loading.setState(false);
 			});
-	}
-
-	addToBasket(): void {
-		this._purchase.addProductToBasket(this.product);
 	}
 }

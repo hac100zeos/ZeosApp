@@ -8,32 +8,27 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
-import { BasketComponent } from './pages/basket/basket.component';
-import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 import { PackComponent } from './pages/pack/pack.component';
 import { PackBrowserComponent } from './pages/pack-browser/pack-browser.component';
 import { ProductComponent } from './pages/product/product.component';
-import { RegisterComponent } from './pages/register/register.component';
 import { SearchComponent } from './pages/search/search.component';
 import { AccountService } from './services/account.service';
 import { LoadingService } from './services/loading.service';
 import { ProductService } from './services/product.service';
-import { PurchaseService } from './services/purchase.service';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		BasketComponent,
-		CheckoutComponent,
 		HomeComponent,
 		LayoutComponent,
 		LoginComponent,
+		RegisterComponent,
 		ProductComponent,
 		PackComponent,
 		PackBrowserComponent,
-		RegisterComponent,
 		SearchComponent,
 	],
 	imports: [
@@ -41,8 +36,6 @@ import { PurchaseService } from './services/purchase.service';
 		HttpClientModule,
 		FormsModule,
 		RouterModule.forRoot([
-			{ path: 'basket', component: BasketComponent },
-			{ path: 'checkout', component: CheckoutComponent },
 			{ path: 'login', component: LoginComponent },
 			{ path: 'register', component: RegisterComponent },
 			{ path: 'packs', component: PackBrowserComponent },
@@ -58,7 +51,6 @@ import { PurchaseService } from './services/purchase.service';
 		AccountService,
 		LoadingService,
 		ProductService,
-		PurchaseService,
 	],
 	bootstrap: [AppComponent],
 })
