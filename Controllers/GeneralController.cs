@@ -1,14 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using MongoDB.Bson;
-using MongoDB.Driver;
-using ZeosApp.Models;
-
 namespace ZeosApp.Controllers
 {
+	using System;
+	using System.Collections.Generic;
+	using System.Threading.Tasks;
+	using Microsoft.AspNetCore.Mvc;
+	using MongoDB.Bson;
+	using MongoDB.Driver;
+	using ZeosApp.Models;
+
 	[Route("api/[controller]")]
 	public class GeneralController : Controller
 	{
@@ -21,7 +20,6 @@ namespace ZeosApp.Controllers
 			database = client.GetDatabase("ZeosApp", null);
 			SeedDb("Products");
 		}
-
 
 		[HttpGet("[action]")]
 		public async Task<bool> SeedDb(String collectionName)
