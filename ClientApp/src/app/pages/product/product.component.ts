@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+import { mergeMap } from 'rxjs/operators';
 
 import { Product } from '../../models/api/product';
+import { LoadingService } from '../../services/loading.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
 	selector: 'zeos-product',
@@ -12,19 +16,19 @@ export class ProductComponent implements OnInit {
 	faMoneyBill = faMoneyBill;
 	product: Product;
 
-	constructor() {}
+	constructor(
+		private _activatedRoute: ActivatedRoute,
+		private _loading: LoadingService,
+		private _product: ProductService,
+	) {}
 
 	ngOnInit() {
-		this.product = <Product>{
-			Id: '12345',
-			Name: 'SAMSUNG QE85Q900 85" Smart 8K HDR QLED TV',
-			Description:
-				'8K in your living room\n' +
-				'\n' +
-				'The future of entertainment is here. The Samsung QE85Q900 85" Smart 8K HDR QLED TV brings impressively detailed 8K resolution to your living room, so you just see the picture, not the pixels. And that\'s not all – colours, textures, and skin tones are enriched – making every seat the best in the house.\n',
-			Category: 'Television',
-			ImageUrl: 'https://via.placeholder.com/300x200',
-			Price: 14000,
-		};
+		this._loading.setState(true);
+		this._activatedRoute.params
+			.pipe(mergeMap((params) => this._product.getProduct(params.id)))
+			.subscribe((product) => {
+				this.product = product;
+				this._loading.setState(false);
+			});
 	}
 }

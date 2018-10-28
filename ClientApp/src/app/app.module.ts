@@ -14,10 +14,10 @@ import { RegisterComponent } from './pages/register/register.component';
 import { PackComponent } from './pages/pack/pack.component';
 import { PackBrowserComponent } from './pages/pack-browser/pack-browser.component';
 import { ProductComponent } from './pages/product/product.component';
+import { SearchComponent } from './pages/search/search.component';
 import { AccountService } from './services/account.service';
 import { LoadingService } from './services/loading.service';
-import { SearchComponent } from './pages/search/search.component';
-import { SearchResultsComponent } from './pages/search-results/search-results.component';
+import { ProductService } from './services/product.service';
 
 @NgModule({
 	declarations: [
@@ -30,7 +30,6 @@ import { SearchResultsComponent } from './pages/search-results/search-results.co
 		PackComponent,
 		PackBrowserComponent,
 		SearchComponent,
-		SearchResultsComponent,
 	],
 	imports: [
 		BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -41,14 +40,18 @@ import { SearchResultsComponent } from './pages/search-results/search-results.co
 			{ path: 'register', component: RegisterComponent },
 			{ path: 'packs', component: PackBrowserComponent },
 			{ path: 'pack/:id', component: PackComponent },
-			{ path: 'product', component: ProductComponent },
+			{ path: 'product/:id', component: ProductComponent },
 			{ path: 'search', component: SearchComponent },
-			{ path: 'search-results', component: SearchResultsComponent },
 			{ path: '', component: HomeComponent, pathMatch: 'full' },
 		]),
 		FontAwesomeModule,
 	],
-	providers: [AccountService, LoadingService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
+	providers: [
+		{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+		AccountService,
+		LoadingService,
+		ProductService,
+	],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

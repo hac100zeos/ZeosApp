@@ -1,6 +1,8 @@
-<form class="input-group mb-3 mt-1" (submit)="search()">
-	<input type="text" class="form-control" name="search" placeholder="Search" aria-label="search" aria-describedby="search" [(ngModel)]="searchQuery">
+<form class="input-group input-group-lg col-6" (submit)="search()">
+	<input type="text" class="form-control" name="search" placeholder="Search for a product..." aria-label="search" aria-describedby="search" [(ngModel)]="searchQuery">
 	<div class="input-group-append">
-		<button class="btn btn-primary" id="search">Search</button>
+		<a class="btn btn-primary" [routerLink]="'/search'" [queryParams]="{ query: searchQuery }">
+			<fa-icon [icon]="faSearch"></fa-icon>
+		</a>
 	</div>
 </form>

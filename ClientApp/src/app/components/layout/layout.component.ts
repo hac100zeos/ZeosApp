@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 import { ApplicationUser } from '../../models/api/application-user';
 import { AccountService } from '../../services/account.service';
@@ -10,6 +11,7 @@ import { LoadingService } from '../../services/loading.service';
 	styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
+	faSpinner = faSpinner;
 	user: ApplicationUser;
 	loading = false;
 

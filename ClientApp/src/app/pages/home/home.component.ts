@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 	selector: 'zeos-home',
@@ -8,16 +8,12 @@ import { Router } from '@angular/router';
 	styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+	faSearch = faSearch;
 	searchQuery = '';
 
-	constructor(private _http: HttpClient, private _router: Router) {}
+	constructor(private _router: Router) {}
 
-	testAuth() {
-		this._http.get('/api/Example/Index').subscribe(console.log, console.log);
-	}
-
-	search() {
-		console.log(this.searchQuery);
-		this._router.navigate(['search', { q: this.searchQuery }]);
+	search(): void {
+		this._router.navigate(['/search'], { queryParams: { query: this.searchQuery }});
 	}
 }

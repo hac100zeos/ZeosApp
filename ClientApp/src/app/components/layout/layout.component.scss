@@ -2,7 +2,7 @@
 	z-index: 9999;
 	background-color: #0002;
 	cursor: wait;
-	i {
+	fa-icon {
 		@keyframes loading-spinner {
 			from {
 				transform: rotate(0deg);
@@ -16,4 +16,7 @@
 		animation-iteration-count: infinite;
 		animation-timing-function: linear;
 	}
+}
+.content {
+	height: calc(100% - 56px);
 }

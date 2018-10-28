@@ -2,29 +2,29 @@
   {
     "Id": "12345",
     "Title": "Electronics",
-    "Description": "Electronics comprises the physics, engineering, technology and applications that deal with the emission, flow and control of electrons in vacuum and matter.[1] The identification of the electron in 1897.",
+    "Description": "Electronics comprises the physics, engineering, technology and applications that deal with the emission, flow and control of electrons in vacuum and matter. The identification of the electron in 1897.",
     "ImageUrl": "https://via.placeholder.com/300x200",
-    "Price": "12500"
+    "Price": "50"
   },
   {
     "Id": "6789",
     "Title": "Utilities",
     "Description": "Use utilities in a sentence. noun. Utilities mean useful features, or something useful to the home such as electricity, gas, water, cable and telephone. Examples of utilities are brakes, gas caps and a steering wheel in a car. Examples of utilities.",
     "ImageUrl": "https://via.placeholder.com/300x200",
-    "Price": "1000"
+    "Price": "20"
   },
   {
     "Id": "65743",
     "Title": "Entertainment & Leisure",
     "Description": "Entertainment is a form of activity that holds the attention and interest of an audience, or gives pleasure and delight. It can be an idea or a task, but is more likely to be one of the activities or events that have developed over thousands of years.",
     "ImageUrl": "https://via.placeholder.com/300x200",
-    "Price": "4566"
+    "Price": "50"
   },
   {
     "Id": "97123",
     "Title": "Fashion",
-    "Description": "Fashion is a popular style, especially in clothing, footwear, lifestyle, accessories, makeup, hairstyle and body.[citation needed] Fashion is a distinctive and often constant trend in the style in which people present themselves.",
+    "Description": "Fashion is a popular style, especially in clothing, footwear, lifestyle, accessories, makeup, hairstyle and body. Fashion is a distinctive and often constant trend in the style in which people present themselves.",
     "ImageUrl": "https://via.placeholder.com/300x200",
-    "Price": "7562"
+    "Price": "40"
   }
 ]
