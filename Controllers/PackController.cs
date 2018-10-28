@@ -1,15 +1,9 @@
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ZeosApp.Models;
-
-
 namespace ZeosApp.Controllers
 {
+	using Microsoft.AspNetCore.Authorization;
+	using Microsoft.AspNetCore.Mvc;
+	using MongoDB.Driver;
+	using ZeosApp.Models;
 
 	[Authorize]
 	[Route("api/[controller]")]
@@ -17,23 +11,17 @@ namespace ZeosApp.Controllers
 	{
 		private readonly IMongoDatabase database = null;
 
-		public PackController()
+		public PackController(DataAccess access)
 		{
-			DataAccess.InitializeClient();
+			access.InitializeClient();
 		}
 
 		[HttpGet("[action]")]
 		public ActionResult<Pack> Packs()
 		{
 			var packs = database.GetCollection<Pack>("pack");
-			
-			if (packs == null)
-			{
-				return NotFound();
-			}
-			return new ObjectResult(packs);
+
+			return packs == null ? (ActionResult<Pack>)NotFound() : (ActionResult<Pack>)new ObjectResult(packs);
 		}
-
-
 	}
 }
