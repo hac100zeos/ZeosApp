@@ -18,7 +18,7 @@ export class BasketComponent implements OnInit {
 	ngOnInit() {
 		this._purchase.basket.subscribe((products) => {
 			this.products = products;
-			this.totalPrice = products.reduce((p1, p2) => p1 + p2.Price, 0);
+			this.totalPrice = products.reduce((p1, p2) => p1 + p2.price, 0);
 		});
 	}
 }
