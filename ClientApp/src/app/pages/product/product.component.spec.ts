@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -11,7 +12,7 @@ describe('ProductComponent', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			declarations: [ProductComponent],
-			imports: [RouterTestingModule, FontAwesomeModule],
+			imports: [HttpClientTestingModule, RouterTestingModule, FontAwesomeModule],
 		}).compileComponents();
 	}));
 

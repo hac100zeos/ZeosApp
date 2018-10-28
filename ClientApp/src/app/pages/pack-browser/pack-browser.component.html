@@ -1,11 +1,10 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-
-<div class="card mx-2" *ngFor="let pack of packs">
-	<img class="card-img-top" [src]="pack.ImageUrl">
-	<div class="card-body">
-		<h5 class="card-title">{{pack.Title}}</h5>
-		<p class="card-text">{{pack.Description}}</p>
-		<a href="#" class="btn btn-secondary btn-lg mx-2">buy pack:&nbsp;{{pack.Price}}<i class="fa ml-2">&#xf0d6;</i> </a>
+<div class="card-deck">
+	<div class="card" *ngFor="let pack of packs">
+		<img class="card-img-top" [src]="pack.ImageUrl">
+		<div class="card-body">
+			<h5 class="card-title">{{ pack.Title }}</h5>
+			<p class="card-text">{{ pack.Description }}</p>
+			<button class="btn btn-secondary btn-lg mx-2" (click)="openPack(pack)">Buy Pack: £{{ pack.Price }}</button>
+		</div>
 	</div>
 </div>
-
