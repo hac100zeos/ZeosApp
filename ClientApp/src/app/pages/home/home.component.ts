@@ -14,6 +14,6 @@ export class HomeComponent {
 	constructor(private _router: Router) {}
 
 	search(): void {
-		this._router.navigate(['/search'], { queryParams: { query: this.searchQuery }});
+		this._router.navigate(['/search'], { queryParams: { query: this.searchQuery } });
 	}
 }
