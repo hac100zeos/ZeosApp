@@ -2,7 +2,7 @@
 	class="loading position-fixed w-100 h-100 align-items-center justify-content-center text-white"
 	[ngStyle]="{display: loading ? 'flex' : 'none'}"
 >
-	<i>//</i>
+	<fa-icon [icon]="faSpinner" [size]="'4x'"></fa-icon>
 </div>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 	<a class="navbar-brand mb-0 h1" [routerLink]="'/'">ZeosApp</a>
@@ -17,6 +17,6 @@
 		<span class="navbar-text" *ngIf="user">Welcome {{ user.email }}</span>
 	</div>
 </nav>
-<div class="w-100 h-100">
+<div class="content w-100">
 	<ng-content></ng-content>
 </div>
