@@ -29,5 +29,12 @@ namespace ZeosApp.Models
 
 		[BsonElement("CategoryId")]
 		public int CategoryId { get; set; }
+<<<<<<< Updated upstream
+=======
+
+		[BsonElement("taglines")]
+		public string[] taglines { get; set; }
+
+>>>>>>> Stashed changes
 	}
 }
