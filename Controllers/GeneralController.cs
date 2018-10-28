@@ -1,8 +1,6 @@
 namespace ZeosApp.Controllers
 {
-	using System;
 	using System.Collections.Generic;
-	using System.Threading.Tasks;
 	using Microsoft.AspNetCore.Mvc;
 	using MongoDB.Bson;
 	using MongoDB.Driver;
@@ -18,13 +16,13 @@ namespace ZeosApp.Controllers
 		{
 			client = access.InitializeClient();
 			database = client.GetDatabase("ZeosApp", null);
-			SeedDb("Products");
+			SeedDb();
 		}
 
 		[HttpGet("[action]")]
-		public async Task<bool> SeedDb(String collectionName)
+		public void SeedDb()
 		{
-			var products = new List<Product>
+			List<Product> products = new List<Product>
 			{
 				new Product
 				{
@@ -56,17 +54,15 @@ namespace ZeosApp.Controllers
 					CategoryId = 2
 				}
 			};
+				var collection = database.GetCollection<BsonDocument>("Products");
+			foreach (Product item in products)
+				collection.InsertOne(item.ToBsonDocument());
+		}
 
-			if (database != null) 
-			{
-				var collection = database.GetCollection<BsonDocument>(collectionName);
-				foreach (Product item in products) 
-				{
-					await collection.InsertOneAsync(item.ToBsonDocument());
-				}
-			}
-
-			return false;
+		[HttpGet("[action]")]
+		public void DropCollection()
+		{
+			database.DropCollection("Products");
 		}
 	}
 }
