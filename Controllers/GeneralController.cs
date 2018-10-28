@@ -33,7 +33,7 @@ namespace ZeosApp.Controllers
 					Description = "Pack of condoms",
 					Name = "Getting laid tonight",
 					Price = 1700,
-					ImageUrl = "test-resources/sap/ui/demokit/explored/img/HT-1603.jpg",
+					ImageUrl = "https://www.google.co.uk/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiasNK4laneAhUJhRoKHRaXBIoQjRx6BAgBEAU&url=https%3A%2F%2Fwww.ebay.co.uk%2Fitm%2FDurex-Red-Strawberry-flavours-Taste-Me-condoms-x1-3-6-10-20-30-50-PCS-%2F111887449893&psig=AOvVaw1FgOuw2vtKWQOt1k_D7bl4&ust=1540817175931225",
 					taglines = new string[]{"Os likes small things", "Joe is buying extra small condoms"}
 				},
 
@@ -44,18 +44,18 @@ namespace ZeosApp.Controllers
 					Description = "Very sharp...",
 					Name = "Razors",
 					Price = 900,
-					ImageUrl = "test-resources/sap/ui/demokit/explored/img/HT-1601.jpg",
+					ImageUrl = "https://www.google.co.uk/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwi0udnOlaneAhWIyoUKHYMgDIIQjRx6BAgBEAU&url=https%3A%2F%2Fondemand.gillette.com%2Fen-us%2Fmen%2Fshaving%2Fblades-razors%2F4-mach3-razor-blade-cartridges-handle-included%2F00047400664296.html&psig=AOvVaw2u0h62QjpK0Y-tIiaH9v8k&ust=1540817214214131",
 					taglines = new string[]{"Buying this cus I'm a f****** hairy beast", "Razor is for p******"}
 				},
 
 				new Product
 				{
 					Category = "Flat Screen TVs",
+					CategoryId = 1,
 					Description = "87-inch, 1366x768 Pixel, 16:9, HDTV ready",
 					Name = "Flat Watch HD37",
-					ImageUrl = "test-resources/sap/ui/demokit/explored/img/HT-6131.jpg",
 					Price = 1199,
-					CategoryId = 1,
+					ImageUrl = "https://www.google.co.uk/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiBip7ylaneAhVnxYUKHfzXAKUQjRx6BAgBEAU&url=https%3A%2F%2Fwww.amazon.com%2FSamsung-UN32EH5300-32-Inch-1080p-Smart%2Fdp%2FB0074FGNJ6&psig=AOvVaw0CwDs5yEV_AS5wU2orjMy8&ust=1540817259901566",
 					taglines = new string[]{"Need a tv for my new house", "Black Friday deal"}
 
 				}
