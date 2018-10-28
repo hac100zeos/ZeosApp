@@ -131,6 +131,8 @@ namespace ZeosApp
 						ClockSkew = TimeSpan.Zero,
 					};
 				});
+
+			services.AddSingleton<DataAccess>();
 		}
 	}
 }

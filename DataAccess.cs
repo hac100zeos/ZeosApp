@@ -1,21 +1,23 @@
-using MongoDB.Driver;
-
 namespace ZeosApp
 {
-	public static class DataAccess
-	{
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Startup"/> class.
-		/// </summary>
-		/// <param name="configuration">IConfiguration injection.</param>
+	using Microsoft.Extensions.Configuration;
+	using MongoDB.Driver;
 
-		public static MongoClient InitializeClient()
+	public class DataAccess
+	{
+		private IConfiguration Configuration { get; }
+
+		public DataAccess(IConfiguration configuration)
 		{
-			const string connectionString = "mongodb://10.0.2.2:27017";
+			this.Configuration = configuration;
+		}
+
+		public MongoClient InitializeClient()
+		{
+			var connectionString = this.Configuration["MongoDB:ConnectionString"];
 
 			var settings = new MongoClientSettings
 			{
-				//Credential = new MongoCredential(), //this fails because no user has userAdmin or userAnyAdminDatabase rights
 				Server = new MongoServerAddress(connectionString)
 			};
 
@@ -26,4 +28,3 @@ namespace ZeosApp
 
 	}
 }
-
