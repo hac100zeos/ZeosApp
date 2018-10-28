@@ -18,9 +18,9 @@ namespace ZeosApp.Controllers
 		private readonly IMongoDatabase database = null;
 		private readonly MongoClient client = null;
 
-		public PackInstanceController()
+		public PackInstanceController(DataAccess access)
 		{
-			client = DataAccess.InitializeClient();
+			client = access.InitializeClient();
 			database = client.GetDatabase("ZeosApp", null);
 		}
 
