@@ -29,5 +29,8 @@ namespace ZeosApp.Models
 
 		[BsonElement("CategoryId")]
 		public int CategoryId { get; set; }
+
+		[BsonElement("taglines")]
+		public string[] taglines { get; set; }
 	}
 }
