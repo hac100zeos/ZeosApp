@@ -1,0 +1,115 @@
+.pack {
+	@keyframes pack-backdrop {
+		from {
+			background-color: rgba(0, 0, 0, 0);
+		}
+		to {
+			background-color: rgba(0, 0, 0, 1);
+		}
+	}
+	animation: pack-backdrop;
+	animation-duration: 1.5s;
+	background-color: rgba(0, 0, 0, 1);
+	:not(.pyro) {
+		z-index: 1;
+	}
+	h1 {
+		@keyframes pack-title {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+		animation: pack-title;
+		animation-duration: 1s;
+	}
+	img {
+		@keyframes pack-image {
+			from {
+				transform: scale(0) rotate(0);
+			}
+			to {
+				transform: scale(1) rotate(720deg);
+			}
+		}
+		animation: pack-image;
+		animation-duration: 1s;
+	}
+	button {
+		@keyframes pack-button {
+			from {
+				transform: scale(0);
+			}
+			to {
+				transform: scale(1);
+			}
+		}
+		animation: pack-button;
+		animation-duration: 1s;
+	}
+	.pyro {
+		$particles: 50;
+		$width: 500;
+		$height: 500;
+		$box-shadow: ();
+		$box-shadow2: ();
+		@for $i from 0 through $particles {
+			$box-shadow: $box-shadow,
+				random($width) - $width / 2 + px random($height) - $height / 1.2 + px hsl(random(360), 100, 50);
+			$box-shadow2: $box-shadow2, 0 0 #fff;
+		}
+		> .before,
+		> .after {
+			width: 5px;
+			height: 5px;
+			box-shadow: $box-shadow2;
+			animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards,
+				5s position linear infinite backwards;
+		}
+
+		> .after {
+			animation-delay: 1.25s, 1.25s, 1.25s;
+			animation-duration: 1.25s, 1.25s, 6.25s;
+		}
+		@keyframes bang {
+			to {
+				box-shadow: $box-shadow;
+			}
+		}
+		@keyframes gravity {
+			to {
+				transform: translateY(256px);
+				opacity: 0;
+			}
+		}
+		@keyframes position {
+			0%,
+			19.9% {
+				margin-top: 10%;
+				margin-left: 40%;
+			}
+			20%,
+			39.9% {
+				margin-top: 40%;
+				margin-left: 30%;
+			}
+			40%,
+			59.9% {
+				margin-top: 20%;
+				margin-left: 70%;
+			}
+			60%,
+			79.9% {
+				margin-top: 30%;
+				margin-left: 20%;
+			}
+			80%,
+			99.9% {
+				margin-top: 30%;
+				margin-left: 80%;
+			}
+		}
+	}
+}
